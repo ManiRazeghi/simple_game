@@ -1,25 +1,30 @@
 from random import randint
 
-pc = randint(1, 100)
-guss_count = 0
-heart = int(input('heart: ')
-
-
-while (ask := int(input('guss number: '))) != pc:
-
-    if ask > pc:
-        print('your guss is upper!')
+def game(heart: int, pc) -> None:
+    guss_count = 0
     
-    else:
-        print('your guss is lower!')
-    
-    guss_count += 1
-    heart -= 1
+    while (ask := int(input('guss number: '))) != pc:
 
-    if heart == 0:
-        print(f'game over! answer: {pc}')
-        break
+        if ask > pc:
+           print('your guss is upper!')
     
-    ask
+        else:
+           print('your guss is lower!')
+    
+        guss_count += 1
+        heart -= 1
 
-print(f'your guss count is: {guss_count}')
+        if heart == 0:
+           print(f'game over! answer: {pc}')
+           break
+    
+        ask
+
+    print(f'your guss count is: {guss_count}')
+
+
+while (ask := input('play?(y/n): ')) == 'y':
+   game(int(input('heart: ')), randint(1, 100))
+   ask
+
+
