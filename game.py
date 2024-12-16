@@ -1,16 +1,13 @@
 from random import randint
+import os
 
 def game(heart: int, pc) -> None:
     guss_count = 0
     
     while (ask := int(input('guss number: '))) != pc:
-
-        if ask > pc:
-           print('your guss is upper!')
-    
-        else:
-           print('your guss is lower!')
-    
+        
+        print('your guss is upper!' if ask > pc else print('your guss is lower!'))
+           
         guss_count += 1
         heart -= 1
 
@@ -23,8 +20,11 @@ def game(heart: int, pc) -> None:
     print(f'your guss count is: {guss_count}')
 
 
-while (ask := input('play?(y/n): ')) == 'y':
+while (ask := input('play?(y/n): ').lower()) == 'y':
    game(int(input('heart: ')), randint(1, 100))
    ask
+
+print('have a good day!)
+os.system('cls')
 
 
